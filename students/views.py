@@ -21,7 +21,7 @@ class StuAPIView(APIView):
             if stu:
                 stu_ser=StuSerializer(stu).data
                 return Response({'status':200,'message':'查询单个学生成功','students':stu_ser})
-            # return Response({'status': 500, 'message': '查询单个学生失败'})
+            return Response({'status': 500, 'message': '查询单个学生失败'})
 
         else:
             stu=Students.objects.all()
@@ -33,7 +33,7 @@ class StuAPIView(APIView):
         try:
             stu_data=request.data
             ser=StuSerializer(data=stu_data)
-            # print(32,ser)
+            print(32,ser)
             if ser.is_valid():
                 stu=ser.save()
                 return Response({'status':200,'message':'创建学生成功','student':StuSerializer(stu).data})

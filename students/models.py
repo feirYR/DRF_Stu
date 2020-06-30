@@ -8,8 +8,9 @@ class Students(models.Model):
     ]
     name=models.CharField(max_length=10)
     age=models.SmallIntegerField()
-    sex=models.SmallIntegerField(choices=sex_choices)
-    phone=models.IntegerField(max_length=11)
+    sex=models.SmallIntegerField(choices=sex_choices,default=0)
+    # sex=models.CharField(choices=sex_choices,default=0)
+    phone=models.CharField(max_length=11)
 
     class Meta:
         db_table='stu_system'
